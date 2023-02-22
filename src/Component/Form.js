@@ -102,7 +102,11 @@ const Form = () => {
           <FormLabel>Gender</FormLabel>
           <RadioGroup name="gender" defaultValue={""} onChange={handlerChange}>
             <FormControlLabel value={"male"} label="Male" control={<Radio />} />
-            <FormControlLabel value={"female"} label="Female" control={<Radio />} />
+            <FormControlLabel
+              value={"female"}
+              label="Female"
+              control={<Radio />}
+            />
             <FormControlLabel
               value={"Other"}
               label="Other"
