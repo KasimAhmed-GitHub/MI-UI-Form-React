@@ -9,6 +9,9 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  FormLabel,
+  RadioGroup,
+  Radio,
 } from "@mui/material";
 
 const Form = () => {
@@ -17,7 +20,8 @@ const Form = () => {
     email: "",
     password: "",
     terms: false,
-    courses:""
+    courses: "",
+    gender: "",
   });
   const handlerChange = (e) => {
     setinput((prevState) => ({
@@ -81,18 +85,33 @@ const Form = () => {
         <br />
         <FormControl fullWidth>
           <InputLabel id="menu">Courses</InputLabel>
-          <Select label="courses"
-          value={input.courses}
-          onChange={handlerChange}
-          name="courses">
+          <Select
+            label="courses"
+            value={input.courses}
+            onChange={handlerChange}
+            name="courses"
+          >
             <MenuItem value={"mongodb"}>MongoDB</MenuItem>
             <MenuItem value={"express"}>Express</MenuItem>
             <MenuItem value={"node"}>Node</MenuItem>
             <MenuItem value={"react"}>React</MenuItem>
           </Select>
-
         </FormControl>
-        <br/>
+        <br />
+        <FormControl>
+          <FormLabel>Gender</FormLabel>
+          <RadioGroup name="gender" defaultValue={""} onChange={handlerChange}>
+            <FormControlLabel value={"male"} label="Male" control={<Radio />} />
+            <FormControlLabel value={"female"} label="Female" control={<Radio />} />
+            <FormControlLabel
+              value={"Other"}
+              label="Other"
+              control={<Radio />}
+            />
+          </RadioGroup>
+        </FormControl>
+
+        <br />
 
         <Button type="submit" variant="contained" color="success">
           Submit
